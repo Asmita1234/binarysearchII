@@ -1,14 +1,8 @@
+//1711034
 #include<iostream>
 using namespace std;
 
-//1711140
-//Suritra Bandyopadhyay
-//XD
-//Beware of copying >_>
-
-
-
-//A basic node structure for the binary search tree
+//basic node for binary search tree
 class node
 {
    public:
@@ -24,7 +18,7 @@ class node
 };
 
 
-//The class for the binaery search tree
+//class for binaery search tree
 class bsTree
 {
    public:
@@ -43,11 +37,7 @@ class bsTree
    }
    
    
-//recursive function to insert the data according to binary search tree data type
-//1711140
-//Suritra Bandyopadhyay
-//XD
-//Beware of copying >_>
+//recursive function to insert data according to binary search tree data type
 void insert(node* v, int data)
 { 
    node* temp=new node;
@@ -85,13 +75,8 @@ void insert(node* v, int data)
    }
  }
 }
-
-//1711140
-//Suritra Bandyopadhyay
-//XD
-//Beware of copying >_>
    
-//displaying by in-order mechanism
+//displaying by in order mechanism
 void display(node* v)
   {  
    if(v==NULL)
@@ -102,24 +87,18 @@ void display(node* v)
    cout<<v->data<<"\t";
    display(v->right);
  }
-   
-//1711140
-//Suritra Bandyopadhyay
-//XD
-//Beware of copying >_>
-   
-   
-//considering each and every case this particular function has been prepared
+
+//considering each and every case this function has been prepared
 void deletenode(int key, node* v)
 {
   node* temp=root;
   if(v==NULL)
   {
-    cout<<"\n \nElement not found !!!\nCan not delete the data entered !";
+    cout<<"  Element not in the tree";
     return;
   }
   
-  //for a leaf node
+  //for leaf node
   if(v->left==NULL && v->right==NULL)
   {
     node* par;
@@ -202,14 +181,8 @@ void deletenode(int key, node* v)
    }
   }
 }
-
-      
-//1711140
-//Suritra Bandyopadhyay
-//XD
-//Beware of copying >_>
   
-//searching node and returning the node that is found
+//searching node and returning node that is found
 node* searchnode(node* v, int data)
 {
    node* temp=v;
@@ -217,7 +190,7 @@ if(v!=NULL)
 {
    if(temp->data==data)
    {
-     cout<<"\nElement found !!!";
+     cout<<"Element in the tree";
      return temp;
    }
    else if(temp->data>data)
@@ -227,17 +200,10 @@ if(v!=NULL)
 }
 else
 { 
-  cout<<"\nElement not found !";
+  cout<<"  Element not in the tree";
   return NULL;
 }
 }
-   
-   
-      
-//1711140
-//Suritra Bandyopadhyay
-//XD
-//Beware of copying >_>
    
 //inefficient way of range search
 //this function traverses through each and every node, hence inefficient
@@ -271,13 +237,7 @@ void size(node* v)
    bstsize++;
    size(v->right);
 }
-   
-//1711140
-//Suritra Bandyopadhyay
-//XD
-//Beware of copying >_>
-   
-   
+
 //efficient way of range search
 //traverses through only that part of the tree that satisfies the limit conditions
 void rsrcn(node* v, int l, int u)
@@ -304,21 +264,12 @@ void rsrcn(node* v, int l, int u)
      return;
    }
 }
-
-
 };
-
-   
-//1711140
-//Suritra Bandyopadhyay
-//XD
-//Beware of copying >_>
-
 int main()
 {
    bsTree BT;
    int n;
-   cout<<"\n \nEnter the number of entries you want to enter: ";
+   cout<<"Enter the no. of entries: ";
    cin>>n;
    
    //INSERTING
@@ -332,7 +283,7 @@ int main()
    BT.display(BT.root);
    
    //SEARCHING
-   cout<<"\n \nEnter the element to be found: ";
+   cout<<" Enter the element to be found: ";
    cin>>n;   
    node* x1=BT.searchnode(BT.root,n);
    cout<<"\n \n";
@@ -340,10 +291,10 @@ int main()
 
    //SIZE CALCULATIONS
    BT.size(BT.root);
-   cout<<"\nThe total number of internal node: "<<BT.internal<<"\nThe total number of external(leaf) node: "<<BT.leaf<<"\nThe total number of nodes in the binary search tree: "<<BT.bstsize;
+   cout<<" The total number of internal node: "<<BT.internal<<" The total number of external(leaf) node: "<<BT.leaf<<" The total number of nodes in the binary search tree: "<<BT.bstsize;
 
    //DELETION
-   cout<<"\n \nEnter the node to be deleted: ";
+   cout<<" Enter the node to be deleted: ";
    cin>>n;
    node* x3=BT.searchnode(BT.root,n);
    BT.deletenode(n,x3);
@@ -353,20 +304,20 @@ int main()
    BT.display(BT.root);
 
    //INEFFICIENT RANGE SEARCH
-   cout<<"\n \nEnter the lower limit for range search: ";
+   cout<<"  Enter the lower limit for range search: ";
    int l;
    cin>>l;
-   cout<<"\nEnter the upper limit for range search: ";
+   cout<<"  Enter the upper limit for range search: ";
    int u;
    cin>>u;
    BT.rangesrc(BT.root,l,u);
 
 
    //EFFICIENT RANGE SEARCH
-   cout<<"\n \nEnter the lower limit for range search: ";
+   cout<<"  Enter the lower limit for range search: ";
    int l1;
    cin>>l1;
-   cout<<"\nEnter the upper limit for range search: ";
+   cout<<"  Enter the upper limit for range search: ";
    int u1;
    cin>>u1;
    BT.rsrcn(BT.root,l1,u1);
@@ -374,6 +325,6 @@ int main()
    return 0;
    
    //SIZE OF RANGE SEARCHING
-   cout<<"\n \nThe total number of elements in the range specified is: "<<BT.rsrc;
+   cout<<"  The total number of elements in the range specified is: "<<BT.rsrc;
    cout<<"\n\n";
 }
